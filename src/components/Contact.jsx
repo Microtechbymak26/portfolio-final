@@ -1,6 +1,3 @@
-
-
-
 import { useRef, useState } from "react";
 
 const Contact = () => {
@@ -18,29 +15,14 @@ const Contact = () => {
     setForm({ ...form, [name]: value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
 
-    const formData = new FormData(formRef.current);
-    formData.append("date", form.date); // make sure date is included
+    // Let Netlify handle form submission naturally
+    formRef.current.submit();
 
-    // ✅ Send to Google Apps Script
-    try {
-      await fetch(
-        "https://docs.google.com/spreadsheets/d/183qMHAupyijHxYK9P515jlUHHUL6CfL5ith78Toz6mc/edit?gid=0#gid=0",
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
-    } catch (err) {
-      console.error("Google Script Error:", err);
-    }
-
-    // ✅ Netlify handles it automatically because of the attributes on the <form>
-
-    // Reset form
+    // Reset form UI
     setTimeout(() => {
       setForm({
         name: "",
@@ -60,7 +42,7 @@ const Contact = () => {
         </h2>
 
         <form
-          ref={formRef} 
+          ref={formRef}
           onSubmit={handleSubmit}
           name="contact"
           method="POST"
