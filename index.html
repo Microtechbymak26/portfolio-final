@@ -7,6 +7,14 @@
     <title>Vite + React</title>
   </head>
   <body>
+    <!-- ✅ Hidden static form for Netlify to detect at build time -->
+    <form name="contact" netlify hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+      <input type="hidden" name="date" />
+    </form>
+
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
