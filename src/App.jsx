@@ -3,8 +3,8 @@ import Navigation from './components/navigation';
 import SkillSection from './components/SkillSection';
 import AboutSection from './components/AboutSection';
 import ProjectSection from './components/ProjectSection';
-import Footer from './components/footer';
 import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 
 
@@ -16,8 +16,8 @@ const App = () => {
       <Hero />
       <AboutSection/>
       <SkillSection/>
-     <ProjectSection/>
-     <Contact/>
+      <ProjectSection/>
+      <Contact/>
       <Footer/>
     </>
   );
